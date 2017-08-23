@@ -1,2 +1,44 @@
 <%= link_to(image_tag("superman2.jpg", width: "50%"), pages_superman_path) %>
 <%= link_to(image_tag("batman2.jpeg", width: "50%"), pages_batman_path) %>
+
+<div class="left">
+	<%= form_tag(pages_save_bat_vote_path) do %>
+	<div class="field">
+	<%= label_tag "name","Nombre" %>
+	<%= text_field_tag "name", nil, placeholder: "Ingrese su nombre" %>
+	</div>
+	<div class="field">
+	<%= label_tag "email","Email" %>
+	<%= email_field_tag "email", nil, placeholder: "Ingrese su email" %>
+	</div>
+	<ul class="actions">
+		<li><%= submit_tag "Enviar" %></li>
+	</ul>
+<% end %>
+</div>
+
+
+<div class="right"><%= form_tag(pages_save_sup_vote_path) do %>
+	<div class="field">
+	<%= label_tag "name","Nombre" %>
+	<%= text_field_tag "name", nil, placeholder: "Ingrese su nombre" %>
+	</div>
+	<div class="field">
+	<%= label_tag "email","Email" %>
+	<%= email_field_tag "email", nil, placeholder: "Ingrese su email" %>
+	</div>
+	<ul class="actions">
+		<li><%= submit_tag "Enviar" %></li>
+	</ul>
+<% end %></div>
+
+<p style="text-align: center;"><%= notice %></p>
+
+
+<div class="left">
+	<%= "|         #{@sup.count} Votos para Superman" %>
+</div>
+
+<div class="right">
+	<%= "#{@bat.count} Votos para Batman         |" %>
+</div>
